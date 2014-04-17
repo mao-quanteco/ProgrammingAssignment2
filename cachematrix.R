@@ -28,14 +28,14 @@ makeCacheMatrix <- function(X = matrix()) {
 ## The matrix X is assumed to be invertible.
 
 cacheSolve <- function(X, ...) {
-        ## Return a matrix that is the inverse of 'X'
+                                    ## Return a matrix that is the inverse of 'X'
     invX <- X$getinv()
     if(!is.null(invX)) {            ## if invX != NULL it has been computed before,
                                     ## thus return cached invX        
         message("getting cached data")
         return(invX)
     }
-    invX <- solve(X$get(), ...)     ## else compute X^-1 by R's solve
+    invX <- solve(X$get(), ...)     ## else compute X^-1 by standard solve function.
     X$setinv(invX)
     invX
 }
